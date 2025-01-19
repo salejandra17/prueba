@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <template id="purchase_lottery_order">
+            <t t-call ='website.layout'>
+                <t t-set="title">Compra de tickets</t>
+                <div class="oe_structure">
+                    <div class="form-group">
+                        <label for="quanty_ticket_order"> </label>
+                        <input type="text" name="quanty_ticket_order" id="quanty_ticket_order" class="form-control" required="true" form="partner_form"/>
+
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Buscar</button>
+                    </div>
+
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="lottery_module_view_tree" model="ir.ui.view">
+        <field name="name">lottery.module.view</field>
+        <field name="model">lottery.module</field>
+        <field name="arch" type="xml">
+            <form string="Rifa">
+                    <group>
+                        <field name="event" required="1"/>
+                        <field name="quantity_tickets" required="1"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="image"/>
+                        <field name="award_id"/>
+                        <field name="status"/>
+                        <field name="id_customer_winner"/>
+                        <field name="total_sales"/>
+                    </group>
+
+            </form>
+        </field>
+    </record>
+    <record id="lottery_ticket_line_view_tree" model="ir.ui.view">
+        <field name="name">lottery.ticket.line.view</field>
+        <field name="model">lottery.ticket.line</field>
+        <field name="arch" type="xml">
+            <form string="Tickets">
+                    <group>
+                        <field name="id_lottery" required="1"/>
+                        <field name="ticket" required="1"/>
+                        <field name="status"/>
+                        <field name="is_winner"/>
+                    </group>
+
+            </form>
+        </field>
+    </record>
+    <record id="award_view_tree" model="ir.ui.view">
+        <field name="name">award.view</field>
+        <field name="model">award</field>
+        <field name="arch" type="xml">
+            <form string="Premios">
+                    <group>
+                        <field name="award" required="1"/>
+                        <field name="type"/>
+                        <field name="cost"/>
+                        <field name="status"/>
+                    </group>
+
+            </form>
+        </field>
+    </record>
+
+    <record id="lottery_module_action" model="ir.actions.act_window">
+            <field name="name">Lista de Rifas</field>
+            <field name="res_model">lottery.module</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="lottery_module_view_tree" />
+        </record>
+
+        <menuitem id="lottery_module_menu"
+         name="Lista de Rifas"
+         action="lottery_module_action"
+         sequence="0"/>
+</odoo>

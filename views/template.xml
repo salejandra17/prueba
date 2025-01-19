@@ -1,0 +1,91 @@
+<odoo>
+    <data>
+        <template id="payment_mode">
+            <t t-call ='website.layout'>
+                <t t-set="title">Datos de Pago</t>
+                <div class="oe_structure">
+                    <div class="containter" bis_skin_checked="1">
+                        <h1 style="text-align: center; ">Si ya ha realizado el pago, rellene lo siguientes campos</h1>
+                    </div>
+                    <div class="container" bis_skin_checked="1">
+                        <div class="row mb32 mt32" bis_skin_checked="1">
+                            <div class="col-lg-6" bis_skin_checked="1">
+                                <form action="/tikets/lottery_confirm" id="verify_tickets" method="post">
+                                    <div>
+                                        <h2>
+                                            <font style="font-size: 14px;">Pago a nombre de:</font>
+                                        </h2>
+                                        <h3 class="mb16 text-muted">
+                                            <font style="color: rgb(0, 0, 0); font-size: 18px;" t-esc="partner.name+partner.last_name"/>
+                                        </h3>
+                                        <h3 class="mb16 text-muted">
+                                            <font style="color: rgb(0, 0, 0); font-size: 18px;" t-esc="partner.phone"/>
+                                        </h3>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="payment_mode_name">Banco:</label>
+                                        <select name="payment_mode_name" id="payment_mode_name" class="form-control" required="true" form="payment_mode">
+                                                    <option></option>
+                                                    <option value="BINANCE">BINANCE</option>
+                                                    <option value="PAYPAL">PayPal (0134)</option>
+                                                    <option value="Bancos_Nacionales">Bancos Nacionales</option>
+                                                    <option value="ZELLE">ZELLE</option>
+                                        </select>
+                                        <label for="Bank_name">Banco:</label>
+                                        <select name="Bank_name" id="Bank_name" class="form-control" required="False" form="payment_mode">
+                                                    <option></option>
+                                                    <option value="0102">Banco de Venezuela (0102)</option>
+                                                    <option value="0134">Banesco (0134)</option>
+                                                    <option value="0105">Banco Mercantil (0105)</option>
+                                                    <option value="0108">Banco Provincial (0108)</option>
+                                                    <option value="0104">Banco Nacional de Credito (0104)</option>
+                                                    <option value="0114">BanCaribe (0114)</option>
+                                                    <option value="0115">Banco Exterior (0115)</option>
+                                                    <option value="0128">Banco Caroní (0128)</option>
+                                                    <option value="0137">Banco Sofitasa (0137)</option>
+                                                    <option value="0138">Banco Plaza (0138)</option>
+                                                    <option value="0157">Banco Fondo Común (0157)</option>
+                                                    <option value="0156">100% Banco (0156)</option>
+                                                    <option value="0157">Del sur (0157)</option>
+                                                    <option value="0163">Banco del Tesoro (0163)</option>
+                                                    <option value="0166">Banco Agricola de Venezuela</option>
+                                                    <option value="0168">BanCrecer Banco de Desarrollo (0168)</option>
+                                                    <option value="0169">Mi Banco, Banco Micro Financiero (0169)</option>
+                                                    <option value="0171">Banco Activo</option>
+                                                    <option value="0172">Banca Amiga Banco Universal (0172)</option>
+                                                    <option value="0174">BanPlus, Banco Comercial</option>
+                                                    <option value="0175">Banco Bicentenario (0175) </option>
+                                                    <option value="0177">Banco de las Fuerzas Armadas</option>
+                                                    <option value="0178">N58 Banco Digital, Banco Microfinanciero, S.A.</option>
+                                                    <option value="0191">Banco Nacional de Credito C.A Banco Universal</option>
+                                                </select>
+                                        <label for="ref_number_name">Referencia:</label>
+                                        <input type="text" name="ref_number_name" id="ref_number_name" class="form-control" required="true" form="payment_mode"/>
+
+                                        <label for="owner_bank_name">Titular:</label>
+                                        <input type="text" name="owner_bank_name" id="owner_bank_name" class="form-control" required="true" form="payment_mode"/>
+                                        <select name="type_id" id="type_id" class="form-control" required="true" form="payment_mode">
+                                            <option value="">Seleccione un Tipo de Identidad</option>
+                                            <option value="4">Cedula de Identidad</option>
+                                            <option value="5">RIF E</option>
+                                            <option value="6">RIF J</option>
+                                            <option value="7">RIF G</option>
+                                            <option value="8">RIF C</option>
+                                            <option value="3">Foreign ID</option>
+                                            <option value="2">Passport</option>
+                                            <option value="1">RIF V</option>
+                                        </select>
+                                        <label for="ci">Cedula de Identidad o Rif del titular de la cuenta que realizó el Pago (V00000000) (J000000)</label>
+                                        <input type="text" id = "ci" name="ci" form="payment_mode" required="true" class="form-control"/>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Pagar</button>
+                                    </form>
+                                <div/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
