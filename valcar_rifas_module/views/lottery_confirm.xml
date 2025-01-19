@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <template id="lottery_confirm">
+            <h1>Sus datos han sido cargados exitosamente</h1>
+        </template>
+    </data>
+</odoo>
